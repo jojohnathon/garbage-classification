@@ -25,12 +25,12 @@ jobs:
       env:
         KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
         KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      run: kaggle kernels pull ${{ secrets.KAGGLE_USERNAME }}/garbage-classification-finetuning -p .
+      run: kaggle kernels pull jaydendrino/garbage-classification-finetuning -p src/
 
     - name: Commit and push changes
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add .
+        git add src/
         git commit -m "Update Kaggle notebooks"
         git push
